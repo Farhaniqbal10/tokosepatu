@@ -1,0 +1,60 @@
+MariaDB [toko_sepatu]> show tables
+    -> ;
++-----------------------+
+| Tables_in_toko_sepatu |
++-----------------------+
+| barang                |
+| member                |
+| penjualan             |
+| supplier              |
++-----------------------+
+4 rows in set (0.001 sec)
+
+MariaDB [toko_sepatu]> desc barang;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| kode_barang | varchar(4)  | NO   | PRI | NULL    |       |
+| merk        | varchar(20) | NO   |     | NULL    |       |
+| jenis       | varchar(10) | NO   |     | NULL    |       |
+| harga       | int(5)      | NO   |     | NULL    |       |
+| stok        | int(5)      | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+5 rows in set (0.004 sec)
+
+MariaDB [toko_sepatu]> desc member;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| id_member   | varchar(4)   | NO   | PRI | NULL    |       |
+| nama_member | varchar(50)  | NO   |     | NULL    |       |
+| jk          | char(1)      | YES  |     | NULL    |       |
+| no_telepon  | varchar(13)  | NO   |     | NULL    |       |
+| alamat      | varchar(100) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+5 rows in set (0.004 sec)
+
+MariaDB [toko_sepatu]> desc penjualan;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| no_transaksi | int(5)      | NO   | PRI | NULL    | auto_increment |
+| kode_barang  | varchar(4)  | NO   | MUL | NULL    |                |
+| merk         | varchar(20) | NO   |     | NULL    |                |
+| harga        | int(5)      | NO   |     | NULL    |                |
+| jumlah       | int(5)      | NO   |     | NULL    |                |
+| total        | int(5)      | NO   |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.004 sec)
+
+MariaDB [toko_sepatu]> desc supplier
+    -> ;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| id_supplier   | varchar(3)   | NO   | PRI | NULL    |       |
+| nama_supplier | varchar(50)  | NO   |     | NULL    |       |
+| alamat        | varchar(100) | NO   |     | NULL    |       |
+| jumlah        | int(5)       | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+4 rows in set (0.004 sec)
